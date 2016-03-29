@@ -83,6 +83,34 @@ public class HelperFunctions : MonoBehaviour {
 		yield return new WaitForSeconds(waitTime);
 		Application.LoadLevel(sceneName);
 	}
+
+    // hours:minutes: seconds
+    public static string getTimeString(int seconds, bool alwaysShowHours = false)
+    {
+        string result = "";
+        int hours = seconds / 3600;
+        seconds -= (hours * 3600);
+
+        int minutes = seconds / 60;
+        seconds -= (minutes * 60);
+
+        // add seconds to string
+        result = seconds.ToString();
+        if (seconds < 10) result = "0" + result;
+
+        // add minutes
+        result = minutes.ToString() + ":" + result;
+        if(minutes < 10) result = "0" + result;
+
+        // add hours
+        if(hours > 0 || alwaysShowHours)
+        {
+            result = hours.ToString() + ":" + result;
+            if (hours < 10) result = "0" + result;
+        }
+
+        return result;
+    }
 	
 	/**
      * Randomize List element order in-place.
