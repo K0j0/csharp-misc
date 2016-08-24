@@ -127,4 +127,8 @@ public class HelperFunctions : MonoBehaviour {
 		
 		return inputList;
 	}
+	
+	public static bool isCloseEnough(float num1, float num2, float thresh){
+		return Mathf.Abs(num1 - num1) <= thresh;
+	}
 }
